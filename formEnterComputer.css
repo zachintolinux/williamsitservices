@@ -1,0 +1,44 @@
+/* Base seperator */
+* {
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Stylized textbox */
+input[type=text] {
+    border: 2px solid darkcyan;
+    border-radius: 4px;
+}
+
+/* Stylized button */
+input[type=button], input[type=submit], input[type=reset] {
+    background-color: darkcyan;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+/* Centering the text */
+.center {
+    text-align: center;
+}
+
+/* This makes the text more visible to the eye */
+.visible-text {
+    background-color: white;
+}
+
+/* Styling the Topbar */
+.topbar {
+    overflow: hidden;
+    background-color: lightgray;
+}
+
+/* Styling the form background color */
+.form-color-background {
+    overflow: hidden;
+    background-color: lightgray;
+}

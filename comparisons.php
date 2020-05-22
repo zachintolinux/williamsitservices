@@ -2,7 +2,7 @@
 	<body>
 		<h1>Open Hours</h1>	
 		<?php
-		date_default_timezone_set ( "EST" );
+		date_default_timezone_set ( "America/Los_Angeles" );
 			if ( date("l")=='Sunday') {
   			echo "Sorry, we are closed today.";
 		} else {

@@ -1,4 +1,4 @@
 <?php
- echo "<br><br><a href='samsusedcars.html'>Sam's Used Cars Home</a>";
-  echo "<br>Copyright 2017, Alan Forbes.  All rights reserved.";
+  echo "<br>Copyright 2020, Zachary Williams.  All rights reserved.";
+   echo "<br>NOTE: This website is a modified version of Sam's Used Cars (by Alan Forbes Copyright 2017) used for educational purposes.";
 ?>

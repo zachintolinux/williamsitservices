@@ -4,32 +4,30 @@
  * Demonstrates how to create a database, create a table, and insert records.
  */
 
-$mysqli = new mysqli('joyofphp', 'root', '' );
+$mysqli = new mysqli('localhost', 'root', '' );
 
 
    if (!$mysqli) { 
-      die('Could not connect: ' . mysql_error()); 
+      die('Could not connect: ' . mysqli_connect_error()); 
   } 
   echo 'Connected successfully to mySQL. <BR>'; 
   
 
 /* Create table doesn't return a resultset */
-if ($mysqli->query("CREATE DATABASE Cars") === TRUE) {
-    echo "<p>Database Cars created</P>";
+if ($mysqli->query("CREATE DATABASE Computers") === TRUE) {
+    echo "<p>Database Computers created</P>";
 }
 else
 {
-    echo "Error creating Cars database: " . mysql_error()."<br>";
+    echo "Error creating Computers database: " . mysqli_connect_error()."<br>";
 }
 //select a database to work with
-$mysqli->select_db("Cars");
-   Echo ("Selected the Cars database");
+$mysqli->select_db("Computers");
+   Echo ("Selected the Computers database");
 
 $query = " CREATE TABLE INVENTORY 
-( VIN varchar(17) PRIMARY KEY, YEAR INT, Make varchar(50), Model varchar(100), 
-TRIM varchar(50), EXT_COLOR varchar (50), INT_COLOR varchar (50), ASKING_PRICE DECIMAL (10,2), 
-SALE_PRICE DECIMAL (10,2), PURCHASE_PRICE DECIMAL (10,2), MILEAGE int, TRANSMISSION varchar (50), 
-PURCHASE_DATE DATE, SALE_DATE DATE)";
+( MN varchar(25) PRIMARY KEY, YEAR INT, Brand varchar(50), Series varchar(50), 
+COLOR varchar (50), TYPE varchar(50), PRICE DECIMAL (10,2), PURCHASE_DATE DATE)";
 //echo "<p>***********</p>";
 //echo $query ;
 //echo "<p>***********</p>";
@@ -39,45 +37,48 @@ if ($mysqli->query($query) === TRUE)
 }
 else
 {
-    echo "<p>Error: </p>" . mysql_error();
+    echo "<p>Error: </p>" . $mysqli->error;
 }
 // Dates are stored in MySQL as 'YYYY-MM-DD' format
-$query = "INSERT INTO `cars`.`inventory` 
-(`VIN`, `YEAR`, `Make`, `Model`, `TRIM`, `EXT_COLOR`, `INT_COLOR`, `ASKING_PRICE`, `SALE_PRICE`, `PURCHASE_PRICE`, `MILEAGE`, `TRANSMISSION`, `PURCHASE_DATE`, `SALE_DATE`) 
+$query = "INSERT INTO `Computers`.`inventory` 
+(`MN`, `YEAR`, `Brand`, `Series`, `COLOR`, `TYPE`, `PRICE`, `PURCHASE_DATE`) 
 VALUES 
-('5FNYF4H91CB054036', '2012', 'Honda', 'Pilot', 'Touring', 'White Diamond Pearl', 'Leather', '37807', NULL, '34250', '7076', 'Automatic', '2012-11-08', NULL);";
+('A515-54-76TA', '2020', 'Acer', 'Aspire 5', 'Charcoal Black', 'Laptop', 749.99, NULL);";
 
 
+/* Checks the connection between the PHP script and mySQL server */
 if ($mysqli->query($query) === TRUE) {
-    echo "<p>Honda Pilot inserted into inventory table. </p>";
+    echo "<p>Acer Aspire 5 inserted into inventory table. </p>";
 }
 else
 {
-    echo "<p>Error inserting Honda Pilot: </p>" . mysql_error();
+    echo "<p>Error inserting Acer Aspire 5: </p>" . $mysqli->error;
     echo "<p>***********</p>";
     echo $query ;
     echo "<p>***********</p>";
 }
 
-// Insert a Dodge Durango
+// Insert a ASUS VivoBook S15
 
-$query = "INSERT INTO `cars`.`inventory` (`VIN`, `YEAR`, `Make`, `Model`, `TRIM`, `EXT_COLOR`, `INT_COLOR`, `ASKING_PRICE`, `SALE_PRICE`, `PURCHASE_PRICE`, `MILEAGE`, `TRANSMISSION`, `PURCHASE_DATE`, `SALE_DATE`) 
+$query = "INSERT INTO `Computers`.`inventory` (`MN`, `YEAR`, `Brand`, `Series`, `COLOR`, `TYPE`, `PRICE`, `PURCHASE_DATE`) 
 VALUES 
-('LAKSDFJ234LASKRF2', '2009', 'Dodge', 'Durango', 'SLT', 'Silver', 'Black', '2700', NULL, '2000', '144000', '4WD Automatic', '2012-12-05', NULL);";
+('S532FA-SB77', '2019', 'ASUS', 'VivoBook S15', 'Transparent Silver', 'Laptop', 749.99, NULL);";
 
 
+/* Checks the connection between the PHP script and mySQL server */
 if ($mysqli->query($query) === TRUE) {
-    echo "<p>Dodge Durango inserted into inventory table.</p>";
+    echo "<p>ASUS VivoBook S15 inserted into inventory table.</p>";
 }
 else
 {
-    echo "<p>Error Inserting Dodge: </p>" . mysql_error();
+    echo "<p>Error Inserting ASUS VivoBook S15: </p>" . $mysqli->error;
     echo "<p>***********</p>";
     echo $query ;
     echo "<p>***********</p>";
 }
 
 
+// This closes the connection between the PHP file and the mySQL server
 $mysqli->close();
 include 'footer.php';
 ?>

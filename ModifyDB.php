@@ -11,10 +11,11 @@ include 'db.php';
   echo 'Connected successfully to mySQL. <BR>'; 
   
 //select a database to work with
-$mysqli->select_db("Cars");
-   Echo ("Selected the Cars database<br>");
+$mysqli->select_db("Computers");
+   Echo ("Selected the Computers database<br>");
 
-$query = "ALTER TABLE `inventory` ADD `Primary_Image` VARCHAR(250) NULL AFTER `SALE_DATE`";
+// This modifies the database
+$query = "ALTER TABLE `inventory` ADD `Primary_Image` VARCHAR(250) NULL AFTER `PURCHASE_DATE`";
 echo "<p>***********</p>";
 echo $query ;
 echo "<p>***********</p>";
@@ -26,6 +27,7 @@ else
 {
     echo "<p>Error: </p>" . $mysqli->error."<br>";;
 }
+// This closes the connection between the PHP file and the mySQL server
 $mysqli->close();
-echo "<br><br><a href='index.html'>Home</a>";
+echo "<br><br><a href='index.php'>Home</a>";
 ?>

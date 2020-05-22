@@ -1,0 +1,77 @@
+* {
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Style the top navigation bar */
+
+.topnav {
+  overflow: hidden;
+  background-color: lightgray;
+}
+
+/* Style the topnav home link */
+
+.homenav {
+  float: left;
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+}
+
+/* Style the topnav links */
+
+.topa {
+  float: right;
+  display: block;
+  margin-top: 8px;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* Change color on hover */
+
+.topnav a:hover {
+  background-color: darkgray;
+  color: white;
+}
+
+/* Style the content */
+
+.content {
+  background: center no-repeat url("https://code.fb.com/wp-content/uploads/2018/05/data-center-shot.jpg");
+  background-color: black;
+  padding: 40px;
+  height: 800px;
+  /* Should be removed. Only for demonstration */
+}
+
+/* Style the text */
+
+.content-text {
+  text-align: center;
+  border: 10px ridge darkgoldenrod;
+  background-color: gray;
+  margin-left: auto;
+  margin-right: auto;
+  width: 30em;
+  padding: .5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Style the footer */
+
+.footer {
+  text-align: center;
+  background-color: #f1f1f1;
+  padding: 10px;
+}

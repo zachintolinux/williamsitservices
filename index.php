@@ -19,7 +19,7 @@
 <p><img alt="The Joy of PHP" height="87" src="joy_logo.jpg" width="809" /></p>
 <h2>Introduction</h2>
 <p>The Joy of PHP book walks you through creating a website for educational purposes such as<strong>
-<a href="williamsitserviceswithcss.html">Williams' IT Services</a></strong>.&nbsp; 
+<a href="williamscomputersales.html">Williams' Computer Sales</a></strong>.&nbsp; 
 All the sample code in the book is conveniently created here.&nbsp; To get 
 started, you'll need to make sure that you have PHP and mySQL running on your 
 machine.&nbsp; Here are the links to get started.&nbsp; </p>
@@ -53,7 +53,7 @@ machine.&nbsp; Here are the links to get started.&nbsp; </p>
 <a href="phpinfo.php" target="_blank">PHP Info Paget</a></p>
 <p>A really simple PHP page --&gt; <a href="simple.php">simple.php</a></p>
 <h2>Database Related Scripts</h2>
-<p><a href="CreateDB.php">Create the Cars Database</a> (Before you can use this, 
+<p><a href="CreateDB.php">Create the Computers Database</a> (Before you can use this, 
 you'll need to edit line 8 with your username and password)</p>
 
 <p><a href="ModifyDB.php">Modify the Inventory Table</a> (This script adds the

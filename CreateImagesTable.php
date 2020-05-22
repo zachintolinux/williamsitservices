@@ -13,10 +13,10 @@ include 'db.php';
 
 
 //select a database to work with
-$mysqli->select_db("Cars");
-   Echo ("Selected the Cars database <br>");
+$mysqli->select_db("Computers");
+   Echo ("Selected the Computers database <br>");
 
-$query = " CREATE TABLE IMAGES (ID INT PRIMARY KEY NOT NULL AUTO_INCREMENT, VIN varchar(17), ImageFile varchar(250))";
+$query = " CREATE TABLE IMAGES (ID INT PRIMARY KEY NOT NULL AUTO_INCREMENT, MN varchar(25), ImageFile varchar(250))";
 //echo "<p>***********</p>";
 //echo $query ;
 //echo "<p>***********</p>";

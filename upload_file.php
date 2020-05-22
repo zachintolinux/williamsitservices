@@ -1,16 +1,18 @@
 <?php
  include 'db.php';
- $vin = trim($_POST['VIN']);
+ $mn = trim($_POST['MN']);
 if ($_FILES["file"]["error"] > 0)
   {
+  // This replies a connection error
   echo "Error: " . $_FILES["file"]["error"] . "<br>";
   }
 else
   {
+  // This provides the mySQL server the data to upload to its tables
   echo "Upload: " . $_FILES["file"]["name"] . "<br>". "\n";
   echo "Type: " . $_FILES["file"]["type"] . "<br>". "\n";
   echo "Size: " . ($_FILES["file"]["size"] / 1024) . " kB<br>". "\n";
-  echo "VIN: ".$vin."<br>";
+  echo "MN: ".$mn."<br>";
   echo "Stored temporarily as: " . $_FILES["file"]["tmp_name"]."<br><BR>". "\n";
   $currentfolder =  getcwd();
   echo "This script is running in: " .$currentfolder."<br>". "\n";
@@ -31,27 +33,30 @@ if(move_uploaded_file($_FILES['file']['tmp_name'], $target_path)) {
         printf("Connect failed: %s\n", mysqli_connect_error());
         exit();
     }
-
+  
+  // This replies a successful connection to the mySQL server
   echo 'Connected successfully to mySQL. <BR>'; 
   $file_name =  $_FILES["file"]["name"];
-  $query = "INSERT INTO images (VIN, ImageFile) VALUES ('$vin', '$file_name')";
+  $query = "INSERT INTO images (MN, ImageFile) VALUES ('$mn', '$file_name')";
   echo $query."<br>\n";
-   echo  "<a href='AddImage.php?VIN=";
-   echo $vin;
-   echo "'>Add another image for this car </a></p>\n";
-/* Try to insert the new car into the database */
+   echo  "<a href='AddImage.php?MN=";
+   echo $mn;
+   echo "'>Add another image for this computer </a></p>\n";
+/* Try to insert the new computer into the database */
 if ($result = $mysqli->query($query)) {
         echo "<p>You have successfully entered $target_path into the database.</P>\n";
        
     }
     else
     {
-        echo "Error entering $VIN into database: " . mysql_error()."<br>";
+        echo "Error entering $MN into database: " . mysqli_connect_error()."<br>";
     }
     $mysqli->close();
     echo "<img src='$imagename' width='150'><br>";
 
-} else{
+}
+// This replies an error between the transmiting data and the mySQL server
+else{
     echo "There was an error uploading the file, please try again!";
 }
   }
